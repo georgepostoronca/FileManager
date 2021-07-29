@@ -1,0 +1,67 @@
+.manager {
+  font-family: sans-serif;
+
+  &__item {
+  }
+
+  &__item > &__content {
+    padding-left: 20px;
+    display: none;
+  }
+
+  &__folder {
+    padding: 5px 0px;
+    padding-left: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: .2s;
+    user-select: none;
+    transition: .2s;
+
+    &.active:not(.empty) {
+      color: blue;
+
+      &:after {
+        content: "-"
+      }
+    }
+
+    &:hover {
+      color: blue; 
+    }
+
+    &:after {
+      content: "+";
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f2f2f2;
+      transform: translateY(-50%);
+      transition: .2s;
+    }
+
+    &.empty {
+      &:after {
+        content: "";
+      }
+    }
+  }
+
+  &__folder.active + &__content {
+    display: block;
+  }
+
+  &__file {
+    padding: 5px 0px;
+    cursor: pointer;
+  }
+
+  &__content {
+
+  }
+}
